@@ -52,7 +52,7 @@ public class OZPageTest {
     @Story("Plasticine search")
     public void searchPlasticineTest() {
         Actions actions = new Actions(driver);
-        actions.moveToElement(onPage(AtlasWebasyst.class).linkText("Детям и родителям")).build().perform();
+        actions.moveToElement(onPage(AtlasWebasyst.class).linkText("Детям и мамам")).build().perform();
         onPage(AtlasWebasyst.class).linkText("Лепка").click();
         onPage(AtlasWebasyst.class).newInput("Пластилин").click();
         onPage(AtlasWebasyst.class).linkText("Пластилин").click();
@@ -77,7 +77,7 @@ public class OZPageTest {
         newActions.moveToElement(onPage(AtlasWebasyst.class).linkText("Косметика, парфюмерия")).
                 build().perform();
         onPage(AtlasWebasyst.class).linkText("Шампуни").click();
-        onPage(AtlasWebasyst.class).linkText("Estel").click();
+        onPage(AtlasWebasyst.class).linkText("Kapous").click();
         onPage(AtlasWebasyst.class).linkText("Рецепты бабушки Агафьи").click();
         onPage(AtlasWebasyst.class).linkText("Жидкий").click();
         onPage(AtlasWebasyst.class).linkText("Для всех типов").click();
@@ -88,7 +88,7 @@ public class OZPageTest {
         ArrayList<String> itemsCosmeticText = new ArrayList<String>();
         for (WebElement ele : itemsCosmetic)
             itemsCosmeticText.add(ele.getText());
-        assertThat(itemsCosmeticText, hasItems(containsString("Estel"),
+        assertThat(itemsCosmeticText, hasItems(containsString("Kapous"),
                 containsString("Рецепты бабушки Агафьи")));
         screenshotPNG();
     }
