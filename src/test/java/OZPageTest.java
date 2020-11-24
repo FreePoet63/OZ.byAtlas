@@ -57,14 +57,14 @@ public class OZPageTest {
         onPage(AtlasWebasyst.class).newInput("Пластилин").click();
         onPage(AtlasWebasyst.class).linkText("Пластилин").click();
         onPage(AtlasWebasyst.class).linkText("Классический").click();
-        onPage(AtlasWebasyst.class).linkText("Мульти-Пульти").click();
+        onPage(AtlasWebasyst.class).linkText("Genio Kids").click();
         onPage(AtlasWebasyst.class).button("Применить").click();
         List<WebElement> itemsChildren = onPage(CollectionPage.class).collection();
         itemsChildren.size();
         ArrayList<String> itemsChildrenText = new ArrayList<String>();
         for (WebElement ele : itemsChildren)
             itemsChildrenText.add(ele.getText());
-        assertThat(itemsChildrenText, hasItem(containsString("Пластилин со стеком \"Приключения Енота\"")));
+        assertThat(itemsChildrenText, hasItem(containsString("Набор для лепки \"Лёгкий пластилин\"")));
         screenshotPNG();
     }
 
@@ -145,14 +145,14 @@ public class OZPageTest {
         onPage(AtlasWebasyst.class).linkText("Кофе").click();
         onPage(CollectionPage.class).itemBrandFilter().get(0).click();
         onPage(CollectionPage.class).itemBrandFilter().get(2).click();
-        onPage(CollectionPage.class).itemTypeFilter().get(1).click();
+        onPage(CollectionPage.class).itemTypeFilter().get(2).click();
         onPage(AtlasWebasyst.class).button("Применить").click();
         List<WebElement> itemsCollectionCoffee = onPage(CollectionPage.class).collection();
         itemsCollectionCoffee.size();
         ArrayList<String> itemsCoffeeText = new ArrayList<String>();
         for (WebElement ele : itemsCollectionCoffee)
             itemsCoffeeText.add(ele.getText());
-        assertThat(itemsCoffeeText, hasItem(containsString("Кофе капсульный")));
+        assertThat(itemsCoffeeText, hasItem(containsString("Кофе молотый")));
         screenshotPNG();
     }
 
