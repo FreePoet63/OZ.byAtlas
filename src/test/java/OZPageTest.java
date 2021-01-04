@@ -3,9 +3,11 @@ import AtlasOZ.CollectionPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.*;
 import io.qameta.atlas.core.Atlas;
+import io.qameta.atlas.webdriver.AtlasWebElement;
 import io.qameta.atlas.webdriver.WebDriverConfiguration;
 import io.qameta.atlas.webdriver.WebPage;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.OutputType;
@@ -14,6 +16,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 
+import java.awt.image.Kernel;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -99,15 +102,15 @@ public class OZPageTest {
     @Story("Shops and cities")
     public void shopCities() {
         onPage(AtlasWebasyst.class).linkText("Магазины OZ").click();
-        onPage(AtlasWebasyst.class).newInput("12 городов").click();
+        onPage(AtlasWebasyst.class).newInput("13 городов").click();
         List<WebElement> cityShop = onPage(CollectionPage.class).collectionShops();
         cityShop.size();
         ArrayList<String> cityShopText = new ArrayList<String>();
         for (WebElement ele : cityShop)
             cityShopText.add(ele.getText());
         assertThat(cityShopText, contains("Минск", "Брест", "Витебск", "Гомель", "Гродно",
-                "Могилев","Бобруйск", "Пинск", "Полоцк", "Орша", "Молодечно", "Барановичи",
-                "Солигорск", "" , "" , "" , "" , "" , "" , "" , "" , "" , "" , "" , "" , "" ));
+                "Могилев", "Бобруйск", "Пинск", "Полоцк", "Орша", "Молодечно", "Барановичи",
+                "Солигорск", "Борисов", "", "", "", "", "", "", "", "", "", "", "", "", "", ""));
         screenshotPNG();
     }
 
